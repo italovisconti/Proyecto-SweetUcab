@@ -44,7 +44,7 @@ def create_user():
     conn = get_connection()
     cur = conn.cursor(cursor_factory=extras.RealDictCursor)
     cur.execute('INSERT INTO usuario (U_Nombre, U_Tipo, U_Contrasena,Rol_Clave,Em_Clave,CN_Clave,CJ_Clave) VALUES (%s, %s, %s,%s, %s, %s,%s) RETURNING *', (U_Nombre, U_Tipo, U_Contrasena,Rol_Clave,Em_Clave,CN_Clave,CJ_Clave))
-    user = cur.fetchone();
+    user = cur.fetchone()
     conn.commit()
     cur.close()
     conn.close()
